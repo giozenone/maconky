@@ -23,7 +23,7 @@ final class PanelController: NSObject, NSWindowDelegate {
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(visibilityChanged(_:)),
-            name: .overwatchVisibilityChanged,
+            name: .maconkyVisibilityChanged,
             object: nil
         )
         NotificationCenter.default.addObserver(

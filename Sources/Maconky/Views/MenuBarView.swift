@@ -12,7 +12,7 @@ struct MenuBarView: View {
                 if editing {
                     settings.clickThrough = false
                 }
-                NotificationCenter.default.post(name: .overwatchAppearanceChanged, object: nil)
+                NotificationCenter.default.post(name: .maconkyAppearanceChanged, object: nil)
             }
 
         Divider()
@@ -23,18 +23,18 @@ struct MenuBarView: View {
             }
         }
         .onChange(of: settings.displayMode) { _, _ in
-            NotificationCenter.default.post(name: .overwatchAppearanceChanged, object: nil)
+            NotificationCenter.default.post(name: .maconkyAppearanceChanged, object: nil)
         }
 
         Toggle("Click-through", isOn: $settings.clickThrough)
             .onChange(of: settings.clickThrough) { _, _ in
-                NotificationCenter.default.post(name: .overwatchAppearanceChanged, object: nil)
+                NotificationCenter.default.post(name: .maconkyAppearanceChanged, object: nil)
             }
 
         Menu("Snap to corner") {
             ForEach(CornerAnchor.allCases) { corner in
                 Button(corner.title) {
-                    NotificationCenter.default.post(name: .overwatchSnapToCorner, object: corner)
+                    NotificationCenter.default.post(name: .maconkySnapToCorner, object: corner)
                 }
             }
         }
@@ -49,7 +49,7 @@ struct MenuBarView: View {
 
         Divider()
 
-        Button("Quit Overwatch") {
+        Button("Quit Maconky") {
             NSApp.terminate(nil)
         }
         .keyboardShortcut("q", modifiers: .command)
@@ -60,7 +60,7 @@ struct MenuBarView: View {
             get: { appState.isVisible },
             set: { newValue in
                 appState.isVisible = newValue
-                NotificationCenter.default.post(name: .overwatchVisibilityChanged, object: newValue)
+                NotificationCenter.default.post(name: .maconkyVisibilityChanged, object: newValue)
             }
         )
     }

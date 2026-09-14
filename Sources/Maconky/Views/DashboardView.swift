@@ -55,7 +55,7 @@ struct DashboardView: View {
 
     private var header: some View {
         HStack(alignment: .lastTextBaseline) {
-            Text("OVERWATCH")
+            Text("MACONKY")
                 .font(ZenTheme.font(baseFont + 1, weight: .bold))
                 .foregroundStyle(accent)
                 .tracking(2.4)

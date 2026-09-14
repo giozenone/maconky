@@ -3,9 +3,9 @@
 # Apple Silicon only: make ARCHS=arm64
 ARCHS ?= arm64 x86_64
 ARCH_FLAGS = $(foreach arch,$(ARCHS),--arch $(arch))
-SWIFT_BUILD = swift build -c release --product Overwatch $(ARCH_FLAGS)
-APP = Overwatch.app
-BUILD_BIN = .build/release/Overwatch
+SWIFT_BUILD = swift build -c release --product Maconky $(ARCH_FLAGS)
+APP = Maconky.app
+BUILD_BIN = .build/release/Maconky
 
 .PHONY: all build app run clean icon
 

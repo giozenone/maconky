@@ -3,11 +3,11 @@ import SwiftUI
 import Combine
 
 @main
-struct OverwatchApp: App {
+struct MaconkyApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 
     var body: some Scene {
-        MenuBarExtra("Overwatch", systemImage: "gauge.with.dots.needle.67percent") {
+        MenuBarExtra("Maconky", systemImage: "gauge.with.dots.needle.67percent") {
             MenuBarView(settings: AppState.shared.settings, appState: AppState.shared)
         }
 
@@ -56,7 +56,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
             .store(in: &cancellables)
 
         NotificationCenter.default.addObserver(
-            forName: .overwatchAppearanceChanged,
+            forName: .maconkyAppearanceChanged,
             object: nil,
             queue: .main
         ) { [weak self] _ in
@@ -66,7 +66,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         }
 
         NotificationCenter.default.addObserver(
-            forName: .overwatchSnapToCorner,
+            forName: .maconkySnapToCorner,
             object: nil,
             queue: .main
         ) { [weak self] note in

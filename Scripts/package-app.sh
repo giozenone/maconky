@@ -4,16 +4,16 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT"
 
-APP="Overwatch.app"
+APP="Maconky.app"
 RES="$APP/Contents/Resources"
 MACOS="$APP/Contents/MacOS"
 
 BIN=""
 for candidate in \
-  ".build/apple/Products/Release/Overwatch" \
-  ".build/release/Overwatch" \
-  ".build/x86_64-apple-macosx/release/Overwatch" \
-  ".build/arm64-apple-macosx/release/Overwatch"
+  ".build/apple/Products/Release/Maconky" \
+  ".build/release/Maconky" \
+  ".build/x86_64-apple-macosx/release/Maconky" \
+  ".build/arm64-apple-macosx/release/Maconky"
 do
   if [[ -x "$candidate" ]]; then
     BIN="$candidate"
@@ -22,7 +22,7 @@ do
 done
 
 if [[ -z "$BIN" ]]; then
-  echo "Missing Overwatch binary — run swift build -c release first" >&2
+  echo "Missing Maconky binary — run swift build -c release first" >&2
   exit 1
 fi
 
@@ -30,7 +30,7 @@ echo "Packaging $BIN ($(lipo -archs "$BIN" 2>/dev/null || echo unknown arch))"
 
 rm -rf "$APP"
 mkdir -p "$MACOS" "$RES"
-cp "$BIN" "$MACOS/Overwatch"
+cp "$BIN" "$MACOS/Maconky"
 cp Info.plist "$APP/Contents/Info.plist"
 
 if [[ -f Resources/AppIcon.png ]]; then

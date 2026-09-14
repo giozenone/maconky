@@ -73,16 +73,16 @@ struct SettingsView: View {
                 .foregroundStyle(.secondary)
 
             .onChange(of: settings.displayMode) { _, _ in
-                NotificationCenter.default.post(name: .overwatchAppearanceChanged, object: nil)
+                NotificationCenter.default.post(name: .maconkyAppearanceChanged, object: nil)
             }
             .onChange(of: settings.clickThrough) { _, _ in
-                NotificationCenter.default.post(name: .overwatchAppearanceChanged, object: nil)
+                NotificationCenter.default.post(name: .maconkyAppearanceChanged, object: nil)
             }
 
             HStack {
                 ForEach(CornerAnchor.allCases) { corner in
                     Button(corner.title) {
-                        NotificationCenter.default.post(name: .overwatchSnapToCorner, object: corner)
+                        NotificationCenter.default.post(name: .maconkySnapToCorner, object: corner)
                     }
                 }
             }
@@ -109,6 +109,6 @@ struct SettingsView: View {
 }
 
 extension Notification.Name {
-    static let overwatchAppearanceChanged = Notification.Name("overwatchAppearanceChanged")
-    static let overwatchSnapToCorner = Notification.Name("overwatchSnapToCorner")
+    static let maconkyAppearanceChanged = Notification.Name("maconkyAppearanceChanged")
+    static let maconkySnapToCorner = Notification.Name("maconkySnapToCorner")
 }

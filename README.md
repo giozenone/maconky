@@ -1,6 +1,8 @@
-# Overwatch
+# Maconky
 
-A native macOS desktop monitor in the spirit of [Conky](https://github.com/brndnmtthw/conky). Overwatch draws a translucent, always-available HUD on the desktop and reports the usual system stats: clock, host, CPU (per-core + history), memory, GPU, disks, network, battery, and top processes.
+Conky for Mac. A native macOS desktop HUD that sits on the wallpaper and reports clock, host, CPU (per-core + history), memory, GPU, disks, network, battery, and top processes.
+
+Linux has [Conky](https://github.com/brndnmtthw/conky). Maconky is a from-scratch Swift app for that same always-on desktop monitor on macOS 14+.
 
 ## Features
 
@@ -19,7 +21,7 @@ Requires macOS 14+ and Swift 6 (Xcode or Command Line Tools). Release builds are
 make run
 ```
 
-That compiles a release binary, wraps it as `Overwatch.app`, and opens it. After launch, look for the gauge icon in the menu bar.
+That compiles a release binary, wraps it as `Maconky.app`, and opens it. After launch, look for the gauge icon in the menu bar.
 
 ```bash
 make app                 # universal (arm64 + x86_64)
@@ -28,20 +30,20 @@ make ARCHS=arm64 app     # Apple Silicon only
 make clean
 ```
 
-GitHub Actions on `main` uploads a universal `Overwatch-universal.zip` artifact.
+GitHub Actions on `main` uploads a universal `Maconky-universal.zip` artifact.
 
 ## Using it
 
 1. The widget appears on the **top-left** of the leftmost display by default.
-2. Open the **Overwatch** menu bar extra.
+2. Open the **Maconky** menu bar extra.
 3. Turn on **Edit / move**, then drag the panel. Turn **Click-through** back on when it is placed.
 4. **Show as → Desktop** is the Conky-like mode. Overlay and Always on top keep it visible over apps.
 5. Settings control opacity, width, accent color, modules, and refresh rate.
 
-On first launch macOS may ask you to allow an unsigned local build. The package script ad-hoc signs the app for that reason.
+On first launch macOS may ask you to allow an unsigned local build. The package script ad-hoc signs the app for that reason. Shared copies are not notarized: right-click the app → **Open** if Gatekeeper blocks it.
 
 ## Notes
 
 - GPU numbers come from `IOAccelerator` performance statistics when the driver publishes them.
 - Process CPU% can exceed 100% on multi-core chips, matching Activity Monitor.
-- Apple Silicon die temperature is not exposed through public APIs; Overwatch shows thermal pressure instead.
+- Apple Silicon die temperature is not exposed through public APIs; Maconky shows thermal pressure instead.

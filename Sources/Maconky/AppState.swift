@@ -15,10 +15,10 @@ final class AppState: ObservableObject {
 
     func toggleVisibility() {
         isVisible.toggle()
-        NotificationCenter.default.post(name: .overwatchVisibilityChanged, object: isVisible)
+        NotificationCenter.default.post(name: .maconkyVisibilityChanged, object: isVisible)
     }
 }
 
 extension Notification.Name {
-    static let overwatchVisibilityChanged = Notification.Name("overwatchVisibilityChanged")
+    static let maconkyVisibilityChanged = Notification.Name("maconkyVisibilityChanged")
 }

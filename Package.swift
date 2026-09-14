@@ -2,17 +2,17 @@
 import PackageDescription
 
 let package = Package(
-    name: "Overwatch",
+    name: "Maconky",
     platforms: [
         .macOS(.v14)
     ],
     products: [
-        .executable(name: "Overwatch", targets: ["Overwatch"])
+        .executable(name: "Maconky", targets: ["Maconky"])
     ],
     targets: [
         .executableTarget(
-            name: "Overwatch",
-            path: "Sources/Overwatch"
+            name: "Maconky",
+            path: "Sources/Maconky"
         )
     ]
 )

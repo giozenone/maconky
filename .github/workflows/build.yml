@@ -14,10 +14,10 @@ jobs:
       - name: Build universal app
         run: make app
       - name: Confirm architectures
-        run: lipo -archs Overwatch.app/Contents/MacOS/Overwatch
+        run: lipo -archs Maconky.app/Contents/MacOS/Maconky
       - name: Zip app
-        run: ditto -c -k --keepParent Overwatch.app Overwatch-universal.zip
+        run: ditto -c -k --keepParent Maconky.app Maconky-universal.zip
       - uses: actions/upload-artifact@v4
         with:
-          name: Overwatch-universal
-          path: Overwatch-universal.zip
+          name: Maconky-universal
+          path: Maconky-universal.zip

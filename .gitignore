@@ -4,6 +4,7 @@
 *.xcworkspace/xcuserdata/
 ZenOne.app/
 Overwatch.app/
+Maconky.app/
 Resources/AppIcon.icns
 Resources/AppIcon.png
 .DS_Store
