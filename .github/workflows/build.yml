@@ -1,0 +1,23 @@
+name: Build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build universal app
+        run: make app
+      - name: Confirm architectures
+        run: lipo -archs Overwatch.app/Contents/MacOS/Overwatch
+      - name: Zip app
+        run: ditto -c -k --keepParent Overwatch.app Overwatch-universal.zip
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Overwatch-universal
+          path: Overwatch-universal.zip
