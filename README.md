@@ -4,27 +4,20 @@ Conky for Mac. A native macOS desktop HUD that sits on the wallpaper and reports
 
 Linux has [Conky](https://github.com/brndnmtthw/conky). Maconky is a from-scratch Swift app for that same always-on desktop monitor on macOS 14+.
 
-## Install
+## Download
 
-Needs macOS 14+ and [Xcode Command Line Tools](https://developer.apple.com/download/all/?q=command%20line%20tools) (`xcode-select --install`). The app is **compiled on your Mac**, so Gatekeeper does not block it.
+Universal app for Intel and Apple Silicon:
 
-```bash
-git clone https://github.com/giozenone/maconky.git
-cd maconky
-./install.sh
-```
+**[Download Maconky](https://github.com/giozenone/maconky/releases/latest)**
 
-That builds for this machine’s CPU, puts `Maconky.app` in `~/Applications`, and launches it. Look for the gauge icon in the menu bar. First compile takes a minute or so.
-
-Homebrew (builds from source, same idea):
+Unzip `Maconky-universal.zip`. Current macOS no longer offers **Open Anyway** for unsigned apps. In Terminal:
 
 ```bash
-brew tap giozenone/maconky https://github.com/giozenone/maconky
-brew install --HEAD maconky
-open "$(brew --prefix maconky)/Maconky.app"
+xattr -cr ~/Downloads/Maconky.app
+open ~/Downloads/Maconky.app
 ```
 
-A prebuilt zip is on [Releases](https://github.com/giozenone/maconky/releases/latest) if you would rather not compile. Unsigned downloads are blocked on current macOS unless you run `xattr -cr` on the app, or until the project is notarized.
+Adjust the path if the app landed somewhere else. A Developer ID + notarized build is what makes double-click work.
 
 ## Features
 
@@ -62,7 +55,7 @@ GitHub Actions on `main` uploads a universal `Maconky-universal.zip` artifact.
 4. **Show as → Desktop** is the Conky-like mode. Overlay and Always on top keep it visible over apps.
 5. Settings control opacity, width, accent color, modules, and refresh rate.
 
-Install from source with `./install.sh` if you want to skip Gatekeeper. A GitHub `.app` zip is still quarantined until the project is notarized.
+On first launch, a GitHub download will be blocked by Gatekeeper. Use the `xattr` command in Download above. Local `make run` builds are not quarantined.
 
 ## Notes
 
