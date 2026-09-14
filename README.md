@@ -10,7 +10,14 @@ Universal app for Intel and Apple Silicon:
 
 **[Download Maconky](https://github.com/giozenone/maconky/releases/latest)**
 
-Unzip `Maconky-universal.zip`. If macOS blocks it, right-click **Maconky.app** → **Open**.
+Unzip `Maconky-universal.zip`. Current macOS no longer offers **Open Anyway** for unsigned apps. In Terminal:
+
+```bash
+xattr -cr ~/Downloads/Maconky.app
+open ~/Downloads/Maconky.app
+```
+
+Adjust the path if the app landed somewhere else. A Developer ID + notarized build is what makes double-click work.
 
 ## Features
 
@@ -48,7 +55,7 @@ GitHub Actions on `main` uploads a universal `Maconky-universal.zip` artifact.
 4. **Show as → Desktop** is the Conky-like mode. Overlay and Always on top keep it visible over apps.
 5. Settings control opacity, width, accent color, modules, and refresh rate.
 
-On first launch macOS may ask you to allow an unsigned local build. The package script ad-hoc signs the app for that reason. Shared copies are not notarized: right-click the app → **Open** if Gatekeeper blocks it.
+On first launch, a GitHub download will be blocked by Gatekeeper. Use the `xattr` command in Download above. Local `make run` builds are not quarantined.
 
 ## Notes
 
