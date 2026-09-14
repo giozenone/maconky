@@ -7,7 +7,7 @@ SWIFT_BUILD = swift build -c release --product Maconky $(ARCH_FLAGS)
 APP = Maconky.app
 BUILD_BIN = .build/release/Maconky
 
-.PHONY: all build app run clean icon
+.PHONY: all build app run install clean icon
 
 all: app
 
@@ -22,6 +22,9 @@ app: build icon
 
 run: app
 	open "$(APP)"
+
+install:
+	bash ./install.sh
 
 clean:
 	rm -rf .build "$(APP)" Resources/AppIcon.icns Resources/AppIcon.png
