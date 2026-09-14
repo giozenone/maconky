@@ -4,6 +4,14 @@ Conky for Mac. A native macOS desktop HUD that sits on the wallpaper and reports
 
 Linux has [Conky](https://github.com/brndnmtthw/conky). Maconky is a from-scratch Swift app for that same always-on desktop monitor on macOS 14+.
 
+## Download
+
+Universal app for Intel and Apple Silicon:
+
+**[Download Maconky](https://github.com/giozenone/maconky/releases/latest)**
+
+Unzip `Maconky-universal.zip`. If macOS blocks it, right-click **Maconky.app** → **Open**.
+
 ## Features
 
 - **Desktop widget** — sits above the wallpaper and desktop icons, underneath other windows
